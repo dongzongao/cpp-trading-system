@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.trading</groupId>
+        <artifactId>trading-business</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>notification-service</artifactId>
+    <packaging>pom</packaging>
+
+    <name>unotification Service</name>
+    <description>Notification Context - Multi-channel notifications</description>
+
+    <modules>
+        <module>notification-interfaces</module>
+        <module>notification-application</module>
+        <module>notification-domain</module>
+        <module>notification-infrastructure</module>
+    </modules>
+
+</project>

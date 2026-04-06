@@ -1,1 +1,92 @@
+# Build outputs
 build/
+target/
+dist/
+out/
+bin/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+.mvn/
+mvnw
+mvnw.cmd
+
+# C++
+*.o
+*.so
+*.a
+*.dylib
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Golang
+*.exe
+*.test
+*.prof
+go.work
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.cache
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+vendor/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Coverage
+coverage/
+*.cover
+*.coverage
+htmlcov/
+
+# Docker
+.dockerignore
+
+# Kubernetes
+*.kubeconfig
+
+
+.kiro
+.idea

@@ -139,30 +139,35 @@ kubectl get pods -n trading-query
 
 | 组件 | 技术 | 版本 |
 |------|------|------|
-| 业务系统 | Java + Spring Boot | JDK 17, Spring Boot 3.2 |
-| 交易引擎 | C++ | C++20 |
-| 查询系统 | Golang | Go 1.21+ |
+| 业务系统 | Java + Spring Boot | JDK 17.0.9, Spring Boot 3.2.1 |
+| 交易引擎 | C++ | C++20, CMake 3.28.1, GCC 13.2.0 |
+| 查询系统 | Golang | Go 1.21.6, Gin 1.9.1, GORM 1.25.5 |
 
 ### 基础设施
 
 | 组件 | 技术 | 版本 |
 |------|------|------|
-| 消息队列 | Apache Kafka | 3.6+ |
-| RPC 框架 | gRPC | 1.60+ |
-| 关系数据库 | PostgreSQL | 15+ |
-| 时序数据库 | TimescaleDB | 2.13+ |
-| 缓存 | Redis | 7.2+ |
-| 容器编排 | Kubernetes | 1.28+ |
-| 服务网格 | Istio | 1.20+ |
+| 消息队列 | Apache Kafka | 3.6.1 |
+| RPC 框架 | gRPC | 1.60.0, Protobuf 25.1 |
+| 关系数据库 | PostgreSQL | 16.1 |
+| 时序数据库 | TimescaleDB | 2.13.1 |
+| 缓存 | Redis | 7.2.4 (Sentinel) |
+| 容器 | Docker | 25.0.0 |
+| 容器编排 | Kubernetes | 1.29.1, Helm 3.14.0 |
+| 服务网格 | Istio | 1.20.2 |
 
 ### 监控运维
 
-| 组件 | 技术 | 用途 |
+| 组件 | 技术 | 版本 |
 |------|------|------|
-| 监控 | Prometheus + Grafana | 指标监控和可视化 |
-| 日志 | ELK Stack | 日志收集和分析 |
-| 链路追踪 | Jaeger | 分布式链路追踪 |
-| 告警 | Alertmanager | 告警管理 |
+| 监控 | Prometheus | 2.48.1 |
+| 可视化 | Grafana | 10.2.3 |
+| 日志 | Elasticsearch | 8.11.4 |
+| 日志处理 | Logstash | 8.11.4 |
+| 日志可视化 | Kibana | 8.11.4 |
+| 日志采集 | Filebeat | 8.11.4 |
+| 链路追踪 | Jaeger | 1.53.0 |
+| 告警 | Alertmanager | 0.26.0 |
 
 ## 📖 API 文档
 
