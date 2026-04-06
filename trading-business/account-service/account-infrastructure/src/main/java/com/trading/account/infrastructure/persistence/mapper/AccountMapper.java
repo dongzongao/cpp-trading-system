@@ -7,6 +7,8 @@ import com.trading.account.infrastructure.persistence.po.AccountPO;
 import com.trading.user.domain.model.valueobject.UserId;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Field;
+
 /**
  * 账户映射器
  */
@@ -21,15 +23,25 @@ public class AccountMapper {
             return null;
         }
         
+        // 创建账户
         Account account = Account.create(
                 UserId.of(po.getUserId()),
                 po.getType(),
                 po.getCurrency()
         );
         
-        // 使用反射或其他方式设置私有字段
-        // 这里简化处理,实际应该通过领域方法设置
-        account.setId(AccountId.of(po.getId()));
+        // 使用反射设置ID和其他字段
+        try {
+            setField(account, "id", AccountId.of(po.getId()));
+            setField(account, "totalBalance", Money.of(po.getTotalBalance(), po.getCurrency()));
+            setField(account, "availableBalance", Money.of(po.getAvailableBalance(), po.getCurrency()));
+            setField(account, "frozenBalance", Money.of(po.getFrozenBalance(), po.getCurrency()));
+            setField(account, "status", po.getStatus());
+            setField(account, "createdAt", po.getCreatedAt());
+            setField(account, "updatedAt", po.getUpdatedAt());
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to map AccountPO to Account", e);
+        }
         
         return account;
     }
@@ -57,5 +69,14 @@ public class AccountMapper {
         po.setUpdatedAt(account.getUpdatedAt());
         
         return po;
+    }
+    
+    /**
+     * 使用反射设置私有字段
+     */
+    private void setField(Object target, String fieldName, Object value) throws Exception {
+        Field field = target.getClass().getDeclaredField(fieldName);
+        field.setAccessible(true);
+        field.set(target, value);
     }
 }
